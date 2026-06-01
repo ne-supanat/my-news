@@ -4,6 +4,8 @@ import 'package:flutter/services.dart';
 import 'package:grouped_list/grouped_list.dart';
 import 'package:intl/intl.dart';
 
+final ValueNotifier<ThemeMode> themeNotifier = ValueNotifier(ThemeMode.light);
+
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(const MainApp());
@@ -14,24 +16,29 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'My News',
-      theme: ThemeData(
-        useMaterial3: true,
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.blueGrey,
-          brightness: Brightness.light,
-        ),
-      ),
-      darkTheme: ThemeData(
-        useMaterial3: true,
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.blueGrey,
-          brightness: Brightness.dark,
-        ),
-      ),
-      themeMode: ThemeMode.system,
-      home: const NewsPage(),
+    return ValueListenableBuilder<ThemeMode>(
+      valueListenable: themeNotifier,
+      builder: (context, currentMode, child) {
+        return MaterialApp(
+          title: 'My News',
+          theme: ThemeData(
+            useMaterial3: true,
+            colorScheme: ColorScheme.fromSeed(
+              seedColor: Colors.blueGrey,
+              brightness: Brightness.light,
+            ),
+          ),
+          darkTheme: ThemeData(
+            useMaterial3: true,
+            colorScheme: ColorScheme.fromSeed(
+              seedColor: Colors.blueGrey,
+              brightness: Brightness.dark,
+            ),
+          ),
+          themeMode: currentMode,
+          home: const NewsPage(),
+        );
+      },
     );
   }
 }
@@ -85,7 +92,19 @@ class _NewsPageState extends State<NewsPage> {
         title: const Text('My News'),
         centerTitle: true,
         actions: [
-          IconButton(icon: const Icon(Icons.refresh), onPressed: _fetchData),
+          ValueListenableBuilder<ThemeMode>(
+            valueListenable: themeNotifier,
+            builder: (context, currentMode, _) {
+              final isDark = currentMode == ThemeMode.dark;
+              return IconButton(
+                icon: Icon(isDark ? Icons.light_mode : Icons.dark_mode),
+                tooltip: isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode',
+                onPressed: () {
+                  themeNotifier.value = isDark ? ThemeMode.light : ThemeMode.dark;
+                },
+              );
+            },
+          ),
         ],
       ),
       body: isLoading
@@ -169,8 +188,10 @@ class _NewsPageState extends State<NewsPage> {
               ),
               useStickyGroupSeparators: true,
               floatingHeader: false,
-              stickyHeaderBackgroundColor: Theme.of(context).colorScheme.surface,
-              order: GroupedListOrder.DESC,
+              stickyHeaderBackgroundColor: Theme.of(
+                context,
+              ).colorScheme.surface,
+              order: GroupedListOrder.ASC,
             ),
     );
   }
