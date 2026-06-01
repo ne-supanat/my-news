@@ -32,10 +32,7 @@ jobs:
         run: flutter pub get
 
       - name: Build Web
-        run: |
-          flutter build web --release --base-href "/${{ github.event.repository.name }}/" \
-            --dart-define=SUPABASE_URL="${{ secrets.SUPABASE_URL }}" \
-            --dart-define=SUPABASE_ANON_KEY="${{ secrets.SUPABASE_ANON_KEY }}"
+        run: flutter build web --release --base-href "/${{ github.event.repository.name }}/"
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
