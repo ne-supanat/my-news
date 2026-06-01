@@ -1,23 +1,23 @@
 [
   {
     "id": 3,
-    "created_at": "2026-06-01T06:11:34.000Z",
-    "title": "Zero-Latency News App Deployed",
-    "summary": "My News has migrated to a high-speed CDN asset-backed architecture, improving load times to 10ms.",
-    "source": "GitHub Pages"
-  },
-  {
-    "id": 2,
-    "created_at": "2026-06-01T05:31:22.890Z",
-    "title": "Flutter 3.22 Released",
-    "summary": "Google announces Flutter 3.22 with exciting updates, WebAssembly support by default, and rendering engine improvements.",
+    "created_at": "2026-06-01T06:49:00.000Z",
+    "title": "Flutter 3.44 Released with Agentic Hot Reload & GenUI",
+    "summary": "Google releases Flutter 3.44 at Google I/O 2026, introducing Agentic Hot Reload for AI assistants and a new Generative UI framework for dynamic layout adapters.",
     "source": "https://flutter.dev/blog"
   },
   {
+    "id": 2,
+    "created_at": "2026-06-01T06:48:00.000Z",
+    "title": "Apple TV+ Premieres Spinoff 'Star City'",
+    "summary": "The highly anticipated 'For All Mankind' spinoff 'Star City' premieres to critical acclaim, detailing the alternate-history space race from the Soviet space program's perspective.",
+    "source": "https://tv.apple.com/show/star-city"
+  },
+  {
     "id": 1,
-    "created_at": "2026-05-24T23:32:34.450Z",
-    "title": "testing title",
-    "summary": "testing summary",
-    "source": "testing source"
+    "created_at": "2026-06-01T06:47:00.000Z",
+    "title": "Genkit for Dart Introduced",
+    "summary": "Firebase announces Genkit Dart, letting developers build AI-powered agentic apps in Dart with support for Gemini, Anthropic, and OpenAI.",
+    "source": "https://firebase.google.com/blog"
   }
 ]
