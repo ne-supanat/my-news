@@ -64,7 +64,7 @@ class _NewsPageState extends State<NewsPage> {
       // Load static news.json from the app assets
       final String response = await rootBundle.loadString('assets/news.json');
       final List<dynamic> data = json.decode(response);
-      
+
       setState(() {
         news.clear();
         news.addAll(data.map((e) => NewsModel.fromJson(e)).toList());
@@ -85,104 +85,93 @@ class _NewsPageState extends State<NewsPage> {
         title: const Text('My News'),
         centerTitle: true,
         actions: [
-          IconButton(
-            icon: const Icon(Icons.refresh),
-            onPressed: _fetchData,
-          ),
+          IconButton(icon: const Icon(Icons.refresh), onPressed: _fetchData),
         ],
       ),
       body: isLoading
           ? const Center(child: CircularProgressIndicator())
           : errorMessage != null
-              ? Center(
+          ? Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    errorMessage!,
+                    style: const TextStyle(color: Colors.red, fontSize: 16),
+                  ),
+                  const SizedBox(height: 16),
+                  ElevatedButton(
+                    onPressed: _fetchData,
+                    child: const Text('Retry'),
+                  ),
+                ],
+              ),
+            )
+          : news.isEmpty
+          ? const Center(child: Text('No news articles found.'))
+          : GroupedListView<NewsModel, String>(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              elements: news,
+              groupBy: (element) =>
+                  DateFormat('dd MMMM yyyy').format(element.createdAt),
+              groupSeparatorBuilder: (String groupByValue) => Padding(
+                padding: const EdgeInsets.symmetric(vertical: 12),
+                child: Text(
+                  groupByValue,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.bold,
+                    color: Theme.of(context).colorScheme.secondary,
+                  ),
+                ),
+              ),
+              itemBuilder: (context, NewsModel element) => Card(
+                margin: const EdgeInsets.symmetric(vertical: 6),
+                elevation: 2,
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        errorMessage!,
-                        style: const TextStyle(color: Colors.red, fontSize: 16),
+                        element.title,
+                        style: const TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                      const SizedBox(height: 16),
-                      ElevatedButton(
-                        onPressed: _fetchData,
-                        child: const Text('Retry'),
+                      const SizedBox(height: 8),
+                      Text(
+                        element.summary,
+                        style: const TextStyle(fontSize: 14, height: 1.4),
+                      ),
+                      const SizedBox(height: 12),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Expanded(
+                            child: Text(
+                              'Source: ${element.source}',
+                              style: TextStyle(
+                                fontSize: 12,
+                                fontStyle: FontStyle.italic,
+                                color: Theme.of(context).colorScheme.outline,
+                              ),
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   ),
-                )
-              : news.isEmpty
-                  ? const Center(
-                      child: Text('No news articles found.'),
-                    )
-                  : GroupedListView<NewsModel, String>(
-                      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                      elements: news,
-                      groupBy: (element) =>
-                          DateFormat('dd MMMM yyyy').format(element.createdAt),
-                      groupSeparatorBuilder: (String groupByValue) => Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 12),
-                        child: Text(
-                          groupByValue,
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.bold,
-                            color: Theme.of(context).colorScheme.secondary,
-                          ),
-                        ),
-                      ),
-                      itemBuilder: (context, NewsModel element) => Card(
-                        margin: const EdgeInsets.symmetric(vertical: 6),
-                        elevation: 2,
-                        child: Padding(
-                          padding: const EdgeInsets.all(16.0),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                element.title,
-                                style: const TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                              const SizedBox(height: 8),
-                              Text(
-                                element.summary,
-                                style: const TextStyle(fontSize: 14, height: 1.4),
-                              ),
-                              const SizedBox(height: 12),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Expanded(
-                                    child: Text(
-                                      'Source: ${element.source}',
-                                      style: TextStyle(
-                                        fontSize: 12,
-                                        fontStyle: FontStyle.italic,
-                                        color: Theme.of(context).colorScheme.outline,
-                                      ),
-                                      overflow: TextOverflow.ellipsis,
-                                    ),
-                                  ),
-                                  Text(
-                                    DateFormat('jm').format(element.createdAt),
-                                    style: TextStyle(
-                                      fontSize: 12,
-                                      color: Theme.of(context).colorScheme.outline,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      useStickyGroupSeparators: true,
-                      floatingHeader: false,
-                      order: GroupedListOrder.DESC,
-                    ),
+                ),
+              ),
+              useStickyGroupSeparators: true,
+              floatingHeader: false,
+              stickyHeaderBackgroundColor: Theme.of(context).colorScheme.surface,
+              order: GroupedListOrder.DESC,
+            ),
     );
   }
 }
