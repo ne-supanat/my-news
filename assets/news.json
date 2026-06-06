@@ -1,5 +1,40 @@
 [
   {
+    "id": 8,
+    "created_at": "2026-06-06T17:32:30.000Z",
+    "title": "Anthropic Files Confidentially for IPO Following Record Series H",
+    "summary": "Anthropic has filed confidentially for a landmark IPO after closing a historic $65 billion Series H round, valuing the AI startup at $965 billion.",
+    "source": "https://www.anthropic.com"
+  },
+  {
+    "id": 7,
+    "created_at": "2026-06-06T17:32:30.000Z",
+    "title": "Steven Spielberg's Sci-Fi Thriller 'Disclosure Day' Premieres in Paris",
+    "summary": "Starring Emily Blunt and Colin Firth, the alien conspiracy film held its Paris premiere ahead of its wide theatrical release on June 12, 2026.",
+    "source": "https://en.wikipedia.org/wiki/Disclosure_Day"
+  },
+  {
+    "id": 6,
+    "created_at": "2026-06-06T17:32:30.000Z",
+    "title": "Thailand's KMITL Students Win First Prize at Huawei ICT Global Final",
+    "summary": "Team 'SIGKILL' from KMITL won First Prize in the Computing Track at the Huawei ICT Global Final in Shenzhen, competing against 177 teams globally.",
+    "source": "https://techsauce.co"
+  },
+  {
+    "id": 5,
+    "created_at": "2026-06-06T17:32:30.000Z",
+    "title": "Dart 3.12 and Flutter 3.44 Focus on Developer Productivity and AI",
+    "summary": "Dart 3.12 introduces private named parameters and experimental primary constructors alongside Flutter 3.44's new AI-ready GenUI framework.",
+    "source": "https://dart.dev"
+  },
+  {
+    "id": 4,
+    "created_at": "2026-06-06T17:32:30.000Z",
+    "title": "Isabel J. Kim Releases Highly Anticipated Debut Sci-Fi Novel 'Sublimation'",
+    "summary": "Astounding Award winner Isabel J. Kim releases her debut novel 'Sublimation', exploring memory, identity, and diaspora in a near-future setting.",
+    "source": "https://lithub.com"
+  },
+  {
     "id": 3,
     "created_at": "2026-06-01T06:49:00.000Z",
     "title": "Flutter 3.44 Released with Agentic Hot Reload & GenUI",
