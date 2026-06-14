@@ -98,9 +98,13 @@ class _NewsPageState extends State<NewsPage> {
               final isDark = currentMode == ThemeMode.dark;
               return IconButton(
                 icon: Icon(isDark ? Icons.light_mode : Icons.dark_mode),
-                tooltip: isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode',
+                tooltip: isDark
+                    ? 'Switch to Light Mode'
+                    : 'Switch to Dark Mode',
                 onPressed: () {
-                  themeNotifier.value = isDark ? ThemeMode.light : ThemeMode.dark;
+                  themeNotifier.value = isDark
+                      ? ThemeMode.light
+                      : ThemeMode.dark;
                 },
               );
             },
@@ -128,15 +132,18 @@ class _NewsPageState extends State<NewsPage> {
             )
           : news.isEmpty
           ? const Center(child: Text('No news articles found.'))
-          : GroupedListView<NewsModel, String>(
+          : GroupedListView<NewsModel, DateTime>(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
               elements: news,
-              groupBy: (element) =>
-                  DateFormat('dd MMMM yyyy').format(element.createdAt),
-              groupSeparatorBuilder: (String groupByValue) => Padding(
+              groupBy: (element) => DateTime(
+                element.createdAt.year,
+                element.createdAt.month,
+                element.createdAt.day,
+              ),
+              groupSeparatorBuilder: (DateTime date) => Padding(
                 padding: const EdgeInsets.symmetric(vertical: 12),
                 child: Text(
-                  groupByValue,
+                  DateFormat('dd MMMM yyyy').format(date),
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 14,
@@ -145,6 +152,8 @@ class _NewsPageState extends State<NewsPage> {
                   ),
                 ),
               ),
+              itemComparator: (item1, item2) =>
+                  item2.createdAt.compareTo(item1.createdAt),
               itemBuilder: (context, NewsModel element) => Card(
                 margin: const EdgeInsets.symmetric(vertical: 6),
                 elevation: 2,
@@ -191,7 +200,7 @@ class _NewsPageState extends State<NewsPage> {
               stickyHeaderBackgroundColor: Theme.of(
                 context,
               ).colorScheme.surface,
-              order: GroupedListOrder.ASC,
+              order: GroupedListOrder.DESC,
             ),
     );
   }
