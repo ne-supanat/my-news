@@ -1,5 +1,33 @@
 [
   {
+    "id": 12,
+    "created_at": "2026-06-14T03:39:20.000Z",
+    "title": "Apple Announces Xcode 27 with Multi-Agent Workbench at WWDC26",
+    "summary": "At WWDC26, Apple introduced Xcode 27, which integrates multi-agent developer workflows from Anthropic, Google, and OpenAI directly into the IDE.",
+    "source": "https://developer.apple.com/xcode"
+  },
+  {
+    "id": 11,
+    "created_at": "2026-06-14T03:39:19.000Z",
+    "title": "Anthropic Overtakes OpenAI in US Business Adoption & Releases Claude Fable 5",
+    "summary": "New data shows Anthropic overtaking OpenAI in corporate usage, alongside the launch of 'Claude Fable 5', a new state-of-the-art software security and coding model.",
+    "source": "https://www.anthropic.com/news"
+  },
+  {
+    "id": 10,
+    "created_at": "2026-06-14T03:39:18.000Z",
+    "title": "Apple Launches Siri AI Powered by Private Cloud Compute",
+    "summary": "Apple unveiled Siri AI at WWDC26, introducing onscreen context awareness and providing free developer access to its Foundation Models.",
+    "source": "https://developer.apple.com/apple-intelligence"
+  },
+  {
+    "id": 9,
+    "created_at": "2026-06-14T03:39:17.000Z",
+    "title": "Thailand Top Universities Launch MC² GenEd Initiative for AI Economy",
+    "summary": "Mahidol, Chulalongkorn, and Chiang Mai Universities launched the MC² program, allowing cross-institution credits to prepare students for the AI-driven economy.",
+    "source": "https://www.bangkokpost.com"
+  },
+  {
     "id": 8,
     "created_at": "2026-06-06T17:32:30.000Z",
     "title": "Anthropic Files Confidentially for IPO Following Record Series H",
