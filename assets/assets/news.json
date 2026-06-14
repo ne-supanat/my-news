@@ -1,5 +1,68 @@
 [
   {
+    "id": 12,
+    "created_at": "2026-06-14T03:39:20.000Z",
+    "title": "Apple Announces Xcode 27 with Multi-Agent Workbench at WWDC26",
+    "summary": "At WWDC26, Apple introduced Xcode 27, which integrates multi-agent developer workflows from Anthropic, Google, and OpenAI directly into the IDE.",
+    "source": "https://developer.apple.com/xcode"
+  },
+  {
+    "id": 11,
+    "created_at": "2026-06-14T03:39:19.000Z",
+    "title": "Anthropic Overtakes OpenAI in US Business Adoption & Releases Claude Fable 5",
+    "summary": "New data shows Anthropic overtaking OpenAI in corporate usage, alongside the launch of 'Claude Fable 5', a new state-of-the-art software security and coding model.",
+    "source": "https://www.anthropic.com/news"
+  },
+  {
+    "id": 10,
+    "created_at": "2026-06-14T03:39:18.000Z",
+    "title": "Apple Launches Siri AI Powered by Private Cloud Compute",
+    "summary": "Apple unveiled Siri AI at WWDC26, introducing onscreen context awareness and providing free developer access to its Foundation Models.",
+    "source": "https://developer.apple.com/apple-intelligence"
+  },
+  {
+    "id": 9,
+    "created_at": "2026-06-14T03:39:17.000Z",
+    "title": "Thailand Top Universities Launch MC² GenEd Initiative for AI Economy",
+    "summary": "Mahidol, Chulalongkorn, and Chiang Mai Universities launched the MC² program, allowing cross-institution credits to prepare students for the AI-driven economy.",
+    "source": "https://www.bangkokpost.com"
+  },
+  {
+    "id": 8,
+    "created_at": "2026-06-06T17:32:30.000Z",
+    "title": "Anthropic Files Confidentially for IPO Following Record Series H",
+    "summary": "Anthropic has filed confidentially for a landmark IPO after closing a historic $65 billion Series H round, valuing the AI startup at $965 billion.",
+    "source": "https://www.anthropic.com"
+  },
+  {
+    "id": 7,
+    "created_at": "2026-06-06T17:32:30.000Z",
+    "title": "Steven Spielberg's Sci-Fi Thriller 'Disclosure Day' Premieres in Paris",
+    "summary": "Starring Emily Blunt and Colin Firth, the alien conspiracy film held its Paris premiere ahead of its wide theatrical release on June 12, 2026.",
+    "source": "https://en.wikipedia.org/wiki/Disclosure_Day"
+  },
+  {
+    "id": 6,
+    "created_at": "2026-06-06T17:32:30.000Z",
+    "title": "Thailand's KMITL Students Win First Prize at Huawei ICT Global Final",
+    "summary": "Team 'SIGKILL' from KMITL won First Prize in the Computing Track at the Huawei ICT Global Final in Shenzhen, competing against 177 teams globally.",
+    "source": "https://techsauce.co"
+  },
+  {
+    "id": 5,
+    "created_at": "2026-06-06T17:32:30.000Z",
+    "title": "Dart 3.12 and Flutter 3.44 Focus on Developer Productivity and AI",
+    "summary": "Dart 3.12 introduces private named parameters and experimental primary constructors alongside Flutter 3.44's new AI-ready GenUI framework.",
+    "source": "https://dart.dev"
+  },
+  {
+    "id": 4,
+    "created_at": "2026-06-06T17:32:30.000Z",
+    "title": "Isabel J. Kim Releases Highly Anticipated Debut Sci-Fi Novel 'Sublimation'",
+    "summary": "Astounding Award winner Isabel J. Kim releases her debut novel 'Sublimation', exploring memory, identity, and diaspora in a near-future setting.",
+    "source": "https://lithub.com"
+  },
+  {
     "id": 3,
     "created_at": "2026-06-01T06:49:00.000Z",
     "title": "Flutter 3.44 Released with Agentic Hot Reload & GenUI",
